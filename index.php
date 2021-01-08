@@ -40,8 +40,8 @@ if (isset($_POST['submit'])) {
     $listProducts = $_POST['products'];
     //var_dump($_POST['products']);
 
-    foreach ($listProducts as $selected => $product) {
-        $totalValue = $totalValue + $products[$product]['price'];
+    foreach ($listProducts as $selected => $productNumber) {
+        $totalValue = $totalValue + $products[$productNumber]['price'];
         $amount++;
         
     }
