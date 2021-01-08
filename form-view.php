@@ -78,7 +78,7 @@
         </form>
 
         <footer>
-            You already ordered <?php echo $amount ?> items for the price of <?php echo $price ?> with a total of <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</br>
+            You already ordered <?php echo $amount ?> items with a total of <strong>&euro; <?php echo $totalValue ?></strong> in cocktails.</br>
         </footer>
     </div>
 

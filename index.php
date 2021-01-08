@@ -22,7 +22,6 @@ function whatIsHappening()
     var_dump($_SESSION);
 }
 
-// TODO: provide some products (you may overwrite the example)
 $products = [
     ['name' => 'Lazy Red Cheeks', 'price' => 10],
     ['name' => 'Pornstar Martini', 'price' => 12],
@@ -34,6 +33,7 @@ $products = [
 
 $totalValue = 0;
 
+// Get total value of ordered items
 
 if (isset($_POST['submit'])) {
     $amount = 0;
@@ -41,12 +41,21 @@ if (isset($_POST['submit'])) {
     //var_dump($_POST['products']);
 
     foreach ($listProducts as $selected => $productNumber) {
-        $totalValue = $totalValue + $products[$productNumber]['price'];
+        $price = $products[$productNumber]['price'];
+        $totalValue = $totalValue + $price;
         $amount++;
         
     }
 
 }
+
+// TODO: show an order confirmation
+
+// TODO: Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
+
+// TODO: If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
+
+
 
 
 require 'form-view.php';
