@@ -50,8 +50,9 @@ if (isset($_POST['submit'])) {
     // TODO: Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
     if(empty($_POST['email'])){
         echo '<div class="alert alert-danger"> Email is required! </br></div>';
-    
-    } else {
+    } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+        echo '<div class="alert alert-danger"> Invalid email format! </br></div>';
+      } else {
         $email = $_POST['email'];
     }
 
@@ -74,7 +75,9 @@ if (isset($_POST['submit'])) {
     }
 
     if(empty($_POST['zipcode'])){
-        echo '<div class="alert alert-danger"> Zipcode is required!</div>';
+        echo '<div class="alert alert-danger"> Zipcode is required! </div>';
+    } else if (!is_numeric($_POST['zipcode'])) {
+        echo '<div class="alert alert-danger"> Zipcode needs to be numeric! </div>';
     } else {
         $zipcode = $_POST['zipcode'];
     }
