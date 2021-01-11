@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
     }
 
     // Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
-    if(empty($_POST['email']) or empty($_POST['street']) or empty($_POST['streetnumber']) or empty($_POST['city']) or empty($_POST['zipcode'])){
+    if(empty($_POST['email']) || empty($_POST['street']) || empty($_POST['streetnumber']) || empty($_POST['city']) || empty($_POST['zipcode'])){
         echo '<div class="alert alert-danger"> Fill in the required fields (email, street, streetnumber, zipcode, city)! </br></div>';
 
     } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
