@@ -81,6 +81,11 @@ if (isset($_POST['submit'])) {
     } else {
         $zipcode = $_POST['zipcode'];
     }
+
+    // TODO: show an order confirmation
+    $orderConfirm = "You already ordered " . $amount . " cocktails with a total of <strong>&euro; " . $totalValue . "</strong>.</br> It will be delivered to " . $street . " " . $streetnumber . "- " . $zipcode . " " . $city .".";
+
+
 }
 
 // TODO: show an order confirmation

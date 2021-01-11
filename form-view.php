@@ -79,7 +79,7 @@
         </form>
 
         <footer>
-            You already ordered <?php echo $amount ?> items with a total of <strong>&euro; <?php echo $totalValue ?></strong> in cocktails.</br>
+            <?php echo $orderConfirm ?> 
         </footer>
     </div>
 
