@@ -47,11 +47,42 @@ if (isset($_POST['submit'])) {
         
     }
 
+    // TODO: Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
+    if(empty($_POST['email'])){
+        echo '<div class="alert alert-danger"> Email is required! </br></div>';
+    
+    } else {
+        $email = $_POST['email'];
+    }
+
+    if(empty($_POST['street'])){
+        echo '<div class="alert alert-danger"> Street is required!</br></div>';
+    } else {
+        $street = $_POST['street'];
+    }
+
+    if(empty($_POST['streetnumber'])){
+        echo '<div class="alert alert-danger"> Streetnumber is required!</br></div>';
+    } else {
+        $streetnumber = $_POST['streetnumber'];
+    }
+
+    if(empty($_POST['city'])){
+        echo '<div class="alert alert-danger"> City is required!</br></div>';
+    } else {
+        $city = $_POST['city'];
+    }
+
+    if(empty($_POST['zipcode'])){
+        echo '<div class="alert alert-danger"> Zipcode is required!</div>';
+    } else {
+        $zipcode = $_POST['zipcode'];
+    }
 }
 
 // TODO: show an order confirmation
 
-// TODO: Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
+
 
 // TODO: If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
 
