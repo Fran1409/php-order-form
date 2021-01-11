@@ -47,48 +47,30 @@ if (isset($_POST['submit'])) {
         
     }
 
-    // TODO: Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
-    if(empty($_POST['email'])){
-        echo '<div class="alert alert-danger"> Email is required! </br></div>';
+    // Required fields are not empty. Zip code are only numbers. Email address is valid. Show it at the top of the form.
+    if(empty($_POST['email']) or empty($_POST['street']) or empty($_POST['streetnumber']) or empty($_POST['city']) or empty($_POST['zipcode'])){
+        echo '<div class="alert alert-danger"> Fill in the required fields (email, street, streetnumber, zipcode, city)! </br></div>';
+
     } else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
         echo '<div class="alert alert-danger"> Invalid email format! </br></div>';
-      } else {
-        $email = $_POST['email'];
-    }
 
-    if(empty($_POST['street'])){
-        echo '<div class="alert alert-danger"> Street is required!</br></div>';
-    } else {
-        $street = $_POST['street'];
-    }
-
-    if(empty($_POST['streetnumber'])){
-        echo '<div class="alert alert-danger"> Streetnumber is required!</br></div>';
-    } else {
-        $streetnumber = $_POST['streetnumber'];
-    }
-
-    if(empty($_POST['city'])){
-        echo '<div class="alert alert-danger"> City is required!</br></div>';
-    } else {
-        $city = $_POST['city'];
-    }
-
-    if(empty($_POST['zipcode'])){
-        echo '<div class="alert alert-danger"> Zipcode is required! </div>';
     } else if (!is_numeric($_POST['zipcode'])) {
         echo '<div class="alert alert-danger"> Zipcode needs to be numeric! </div>';
+
     } else {
+        $email = $_POST['email'];
+        $street = $_POST['street'];
+        $streetnumber = $_POST['streetnumber'];
+        $city = $_POST['city'];
         $zipcode = $_POST['zipcode'];
+
+        // Show an order confirmation
+        $orderConfirm = "You already ordered " . $amount . " cocktails with a total of <strong>&euro; " . $totalValue . "</strong>.</br> It will be delivered to " . $street . " " . $streetnumber . "- " . $zipcode . " " . $city .".";
+
     }
-
-    // TODO: show an order confirmation
-    $orderConfirm = "You already ordered " . $amount . " cocktails with a total of <strong>&euro; " . $totalValue . "</strong>.</br> It will be delivered to " . $street . " " . $streetnumber . "- " . $zipcode . " " . $city .".";
-
 
 }
 
-// TODO: show an order confirmation
 
 
 
