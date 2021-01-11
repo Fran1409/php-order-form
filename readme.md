@@ -7,7 +7,7 @@
 
 ## Must-have features
 
-### Preparation
+### Mission
 - Have a look at the provided structure: you get both an index file and another file containing a form. How are these two working together?
 - Think of a funny / surprising / original name for a store that should definitely exist. (fancy suits for cats? bongo for dates? you name it!)
 - Think of some products to sell (feel free to be creative) and update the products array with these.

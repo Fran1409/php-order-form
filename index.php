@@ -6,7 +6,12 @@
 // This line makes PHP behave in a more strict way
 declare(strict_types=1);
 
+//ini_set('display_errors', '1');
+//ini_set('display_startup_errors', '1');
+//error_reporting(E_ALL);
+
 // We are going to use session variables so we need to enable sessions
+session_set_cookie_params(0);
 session_start();
 
 // Use this function when you need to need an overview of these variables
@@ -42,6 +47,14 @@ if (isset($_POST['submit'])) {
     $listProducts = $_POST['products'];
     //var_dump($_POST['products']);
 
+    // Session variables
+    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['street'] = $_POST['street'];
+    $_SESSION['streetnumber'] = $_POST['streetnumber'];
+    $_SESSION['city'] = $_POST['city'];
+    $_SESSION['zipcode'] = $_POST['zipcode'];
+
+
     // Get total value of ordered items
     foreach ($listProducts as $selected => $productNumber) {
         $price = $products[$productNumber]['price'];
@@ -72,13 +85,14 @@ if (isset($_POST['submit'])) {
 
     }
 
+    
+
 }
 
+// remove all session variables
+//session_unset();
 
-
-
-
-
-
+// destroy the session
+//session_destroy();
 
 require 'form-view.php';
