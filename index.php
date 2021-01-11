@@ -27,15 +27,23 @@ function whatIsHappening()
     var_dump($_SESSION);
 }
 
-$products = [
-    ['name' => 'Lazy Red Cheeks', 'price' => 10],
-    ['name' => 'Pornstar Martini', 'price' => 12],
-    ['name' => 'Cosmopolitan', 'price' => 11],
-    ['name' => 'Margarita', 'price' => 12],
-    ['name' => 'Long Island Ice Tea', 'price' => 12],
-    ['name' => 'Bart', 'price' => 10],
-];
-
+if (empty($_GET) || $_GET['food'] == 0) {
+    $products = [
+        ['name' => 'Lazy Red Cheeks', 'price' => 10],
+        ['name' => 'Pornstar Martini', 'price' => 12],
+        ['name' => 'Cosmopolitan', 'price' => 11],
+        ['name' => 'Margarita', 'price' => 12],
+        ['name' => 'Long Island Ice Tea', 'price' => 12],
+        ['name' => 'Bart', 'price' => 10],
+    ];
+} else if (($_GET['food']) == 1) {
+    $products = [
+        ['name' => 'Tapas box 1 person', 'price' => 15],
+        ['name' => 'Tapas box 2 persons', 'price' => 30],
+        ['name' => 'Tapas box 3 persons', 'price' => 45],
+        ['name' => 'Tapas box 4 persons', 'price' => 60],
+    ];
+}
 
 
 
@@ -81,8 +89,11 @@ if (isset($_POST['submit'])) {
         $zipcode = $_POST['zipcode'];
 
         // Show an order confirmation
-        $orderConfirm = "You already ordered " . $amount . " cocktails with a total of <strong>&euro; " . $totalValue . "</strong>.</br> It will be delivered to " . $street . " " . $streetnumber . "- " . $zipcode . " " . $city .".";
-
+        if (empty($_GET) || $_GET['food'] == 0) {
+            $orderConfirm = "You ordered " . $amount . " cocktails with a total of <strong>&euro; " . $totalValue . "</strong>.</br> It will be delivered to " . $street . " " . $streetnumber . "- " . $zipcode . " " . $city .".";
+        } else if (($_GET['food']) == 1) {
+            $orderConfirm = "You ordered " . $amount . " tapas with a total of <strong>&euro; " . $totalValue . "</strong>.</br> It will be delivered to " . $street . " " . $streetnumber . "- " . $zipcode . " " . $city .".";
+        }
     }
 
     
