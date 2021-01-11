@@ -31,15 +31,18 @@ $products = [
     ['name' => 'Bart', 'price' => 10],
 ];
 
+
+
+
 $totalValue = 0;
 
-// Get total value of ordered items
 
 if (isset($_POST['submit'])) {
     $amount = 0;
     $listProducts = $_POST['products'];
     //var_dump($_POST['products']);
 
+    // Get total value of ordered items
     foreach ($listProducts as $selected => $productNumber) {
         $price = $products[$productNumber]['price'];
         $totalValue = $totalValue + $price;
@@ -74,7 +77,6 @@ if (isset($_POST['submit'])) {
 
 
 
-// TODO: If the form was not valid, show the previous values in the form so that the user doesn't have to retype everything.
 
 
 

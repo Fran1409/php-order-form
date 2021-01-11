@@ -34,7 +34,7 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="email">E-mail:</label>
-                    <input type="text" id="email" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>"/>
+                    <input type="text" id="email" name="email" class="form-control" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ''; ?>">
                 </div>
                 <div></div>
             </div>
