@@ -5,11 +5,11 @@ class Products
     var $name;
     var $price;
 
-    /* function getNewProduct($name, $price)
+    function setProduct($name, $price)
     {
         $this->name = $name;
         $this->price = $price;
-    } */
+    }
 }
 
 

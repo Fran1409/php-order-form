@@ -48,28 +48,22 @@ if (empty($_GET) || $_GET['food'] == 0) {
 }
 
 $product1 = new Products();
-$product1->name = "Lazy Red Cheeks";
-$product1->price = "10";
+$product1->setProduct("Lazy Red Cheeks", "10");
 
 $product2 = new Products();
-$product2->name = "Pornstar Martini";
-$product2->price = "12";
+$product2->setProduct("Pornstar Martini", "12");
 
 $product3 = new Products();
-$product3->name = "Cosmopolitan";
-$product3->price = "11";
+$product3->setProduct("Cosmopolitan", "11");
 
 $product4 = new Products();
-$product4->name = "Margarita";
-$product4->price = "12";
+$product4->setProduct("Margarita", "12");
 
 $product5 = new Products();
-$product5->name = "Long Island Ice Tea";
-$product5->price = "12";
+$product5->setProduct("Long Island Ice Tea", "12");
 
 $product6 = new Products();
-$product6->name = "Bart";
-$product6->price = "10";
+$product6->setProduct("Bart", "10");
 
 $products = [
     $product1,
