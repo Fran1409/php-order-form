@@ -6,9 +6,9 @@
 // This line makes PHP behave in a more strict way
 declare(strict_types=1);
 
-//ini_set('display_errors', '1');
-//ini_set('display_startup_errors', '1');
-//error_reporting(E_ALL);
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
 // We are going to use session variables so we need to enable sessions
 session_set_cookie_params(0);
@@ -80,6 +80,7 @@ if (empty($_GET) || $_GET['food'] == 0) {
 if (isset($_POST['submit'])) {
     $amount = 0;
     $listProducts = $_POST['products'];
+    $totalValue = 0;
     //var_dump($_POST['products']);
 
     // Session variables
@@ -92,7 +93,7 @@ if (isset($_POST['submit'])) {
 
     // Get total value of ordered items
     foreach ($listProducts as $selected => $productNumber) {
-        $price = $products[$productNumber]['price'];
+        $price = $products[$productNumber]->price;
         $totalValue = $totalValue + $price;
         $amount++;
         
