@@ -6,9 +6,9 @@
 // This line makes PHP behave in a more strict way
 declare(strict_types=1);
 
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+//ini_set('display_errors', '1');
+//ini_set('display_startup_errors', '1');
+//error_reporting(E_ALL);
 
 // We are going to use session variables so we need to enable sessions
 session_set_cookie_params(0);
@@ -28,7 +28,7 @@ function whatIsHappening()
     echo '<h2>$_SESSION</h2>';
     var_dump($_SESSION);
 }
-
+//Use classes for products
 $product1 = new Products();
 $product1->setProduct("Lazy Red Cheeks", "10");
 
