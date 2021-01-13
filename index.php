@@ -29,24 +29,6 @@ function whatIsHappening()
     var_dump($_SESSION);
 }
 
-if (empty($_GET) || $_GET['food'] == 0) {
-    $products = [
-        ['name' => 'Lazy Red Cheeks', 'price' => 10],
-        ['name' => 'Pornstar Martini', 'price' => 12],
-        ['name' => 'Cosmopolitan', 'price' => 11],
-        ['name' => 'Margarita', 'price' => 12],
-        ['name' => 'Long Island Ice Tea', 'price' => 12],
-        ['name' => 'Bart', 'price' => 10],
-    ];
-} else if (($_GET['food']) == 1) {
-    $products = [
-        ['name' => 'Tapas box 1 person', 'price' => 15],
-        ['name' => 'Tapas box 2 persons', 'price' => 30],
-        ['name' => 'Tapas box 3 persons', 'price' => 45],
-        ['name' => 'Tapas box 4 persons', 'price' => 60],
-    ];
-}
-
 $product1 = new Products();
 $product1->setProduct("Lazy Red Cheeks", "10");
 
@@ -65,18 +47,35 @@ $product5->setProduct("Long Island Ice Tea", "12");
 $product6 = new Products();
 $product6->setProduct("Bart", "10");
 
-$products = [
-    $product1,
-    $product2,
-    $product3,
-    $product4,
-    $product5,
-    $product6,
-];
+$tapas1 = new Products();
+$tapas1->setProduct("Tapas box 1 person", "15");
 
+$tapas2 = new Products();
+$tapas2->setProduct("Tapas box 2 person", "30");
 
-$totalValue = 0;
+$tapas3 = new Products();
+$tapas3->setProduct("Tapas box 3 person", "45");
 
+$tapas4 = new Products();
+$tapas4->setProduct("Tapas box 4 person", "60");
+
+if (empty($_GET) || $_GET['food'] == 0) {
+    $products = [
+        $product1,
+        $product2,
+        $product3,
+        $product4,
+        $product5,
+        $product6,
+    ];
+} else if (($_GET['food']) == 1) {
+    $products = [
+        $tapas1,
+        $tapas2,
+        $tapas3,
+        $tapas4,
+    ];
+}
 
 if (isset($_POST['submit'])) {
     $amount = 0;
